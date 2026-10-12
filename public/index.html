@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff"><title>Lendingplate — Payment Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="portal">
+    <div class="notice-strip" role="note">⚠ &nbsp; Only pay to company bank accounts or UPI IDs. Payments made to individual accounts are unauthorised and may not be eligible for support.</div>
+    <section class="card">
+      <header class="brandbar">
+        <a class="brand" href="/" aria-label="Lendingplate home"><span class="brand-mark">ϟ</span><span><strong>Lendingplate</strong></span></a>
+        <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
+        <nav id="menu" class="menu hidden"><a href="#payment">Make a payment</a><a href="#legal">About &amp; notices</a><a href="/admin.html">Admin</a></nav>
+      </header>
+      <section class="content" id="payment">
+        <h1>Lendingplate Admin Portal</h1>
+        <form id="paymentForm" novalidate>
+          <label for="mobile">Mobile Number</label><input id="mobile" name="mobileNumber" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" autocomplete="tel" required>
+          <label for="amount">Amount (₹)</label><input id="amount" name="amount" type="number" min="1" max="1000000" step="0.01" placeholder="Enter amount" required>
+          <button class="primary" type="submit" id="payButton">Pay Now <span aria-hidden="true">→</span></button>
+        </form>
+        <div id="feedback" class="feedback hidden" role="status"></div>
+        <section class="upi-panel" aria-label="Payment information"><span class="eyebrow">PAYABLE UPI ID</span><strong id="upiId">Create a payment request</strong><button id="copyButton" class="copy-button" type="button" disabled>Copy UPI ID</button></section>
+        <section id="paymentResult" class="result hidden" aria-live="polite"></section>
+        <button id="amendmentButton" class="amendment" type="button">Amendment Notice</button>
+        <aside id="amendment" class="amendment-copy hidden">Lendingplate is a demonstration payment portal. Payments remain pending until confirmed by an authorized payment provider. Please verify the merchant name in your UPI app before paying. Lendingplate never requests your UPI PIN, OTP, or banking password.</aside>
+      </section>
+      <footer id="legal"><p><b>Lendingplate</b> is a sample payment interface for authorized merchants. This website is not a bank, lender, or financial institution. Payment processing and confirmation are provided by your chosen UPI app and authorized payment provider.</p><p>Business name: <span contenteditable="true" aria-label="Editable business name">Your Business Name</span> · Support: <a href="mailto:support@example.com">support@example.com</a></p><small>© <span id="year"></span> Lendingplate · Privacy · Terms</small></footer>
+    </section>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
